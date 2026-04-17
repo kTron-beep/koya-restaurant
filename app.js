@@ -7,11 +7,11 @@ const CONFIG = {
   // Update these 4 fields first.
   whatsappNumberE164DigitsOnly: "2207335586", // e.g. "2207123456" (digits only, country code first). Leave blank to use WhatsApp share fallback.
   phoneNumberDisplay: "+220 733 5586", // e.g. "+220 712 3456" (for the Call button). Leave blank to hide Call.
-  addressLine: "Set your address in app.js",
+  addressLine: "Senegambia Highway, Former Big Apple",
   mapsQuery: "KOYA Restaurant", // used for Google Maps embed + Directions link
 
   // Reservation requests (no backend). Leave blank to hide email option.
-  reservationEmail: "",
+  reservationEmail: "ktron.gm@gmail.com",
 
   // Opening hours (local device time). Use 24h format "HH:MM". Set closed:true to mark closed all day.
   hours: {
