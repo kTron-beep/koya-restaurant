@@ -611,17 +611,21 @@ function renderTikTok() {
 }
 
 function wireSectionAutoScroll() {
-  // Premium "slide to next section" feel on desktop wheel.
-  // We intentionally avoid touch devices and respect reduced motion.
+  // Premium "slide to next section" feel on desktop wheel only.
+  // We intentionally avoid touch/mobile and require a stronger wheel gesture.
   const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
   const coarse = window.matchMedia?.("(pointer: coarse)")?.matches;
-  if (reduced || coarse) return;
+  const hover = window.matchMedia?.("(hover: hover)")?.matches;
+  const hasTouch = navigator.maxTouchPoints > 0;
+  const desktopLayout = window.innerWidth >= 1024;
+  if (reduced || coarse || !hover || hasTouch || !desktopLayout) return;
 
   const sections = $$("main > section");
   if (!sections.length) return;
 
   let lastAt = 0;
   let lockedUntil = 0;
+  let prevWheelAt = 0;
 
   const headerOffset = 84; // sticky header + breathing room
 
@@ -651,7 +655,13 @@ function wireSectionAutoScroll() {
       if (now < lockedUntil) return;
 
       const dy = e.deltaY;
-      if (Math.abs(dy) < 18) return; // trackpad micro-scroll: let it be natural
+      const deltaAbs = Math.abs(dy);
+      const dt = prevWheelAt ? now - prevWheelAt : 999;
+      prevWheelAt = now;
+      const speed = deltaAbs / Math.max(dt, 1);
+
+      // Only snap on intentional/fast wheel gestures.
+      if (deltaAbs < 70 && speed < 0.6) return;
 
       const idx = getIndex();
       const next = dy > 0 ? idx + 1 : idx - 1;
