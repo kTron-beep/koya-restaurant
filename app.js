@@ -611,28 +611,21 @@ function renderTikTok() {
 }
 
 function wireSectionAutoScroll() {
-  // Premium "slide to next section" feel on desktop wheel only.
-  // We intentionally avoid touch/mobile and require a stronger wheel gesture.
+  // Auto-scroll after 5s idle, but only when intent is clear.
+  // This avoids forced jumps while users are reading inside long sections.
   const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches;
-  const coarse = window.matchMedia?.("(pointer: coarse)")?.matches;
-  const hover = window.matchMedia?.("(hover: hover)")?.matches;
-  const hasTouch = navigator.maxTouchPoints > 0;
-  const desktopLayout = window.innerWidth >= 1280;
-  const ua = navigator.userAgent || "";
-  const mobileUA = /Android|iPhone|iPad|iPod|Windows Phone|Mobile/i.test(ua);
-  if (reduced || coarse || !hover || hasTouch || mobileUA || !desktopLayout) return;
+  if (reduced) return;
 
   const sections = $$("main > section");
   if (!sections.length) return;
 
-  let lastAt = 0;
-  let lockedUntil = 0;
-  let prevWheelAt = 0;
+  const idleMs = 5000;
+  const headerOffset = 84;
+  let idleTimer = null;
+  let interactedSinceAuto = false;
 
-  const headerOffset = 84; // sticky header + breathing room
-
-  const getIndex = () => {
-    const y = window.scrollY + headerOffset + 2;
+  const getCurrentIndex = () => {
+    const y = window.scrollY + window.innerHeight * 0.45;
     let best = 0;
     for (let i = 0; i < sections.length; i++) {
       if (sections[i].offsetTop <= y) best = i;
@@ -640,51 +633,65 @@ function wireSectionAutoScroll() {
     return best;
   };
 
-  const shouldIgnore = (e) => {
-    if (e.defaultPrevented) return true;
-    if (e.ctrlKey || e.metaKey) return true; // allow zoom / browser shortcuts
+  const canAutoAdvance = (idx) => {
+    const sec = sections[idx];
+    if (!sec) return false;
+    if (idx >= sections.length - 1) return false;
+
+    const top = sec.offsetTop;
+    const bottom = top + sec.offsetHeight;
+    const yTop = window.scrollY + headerOffset;
+    const yBottom = window.scrollY + window.innerHeight;
+    const nearSectionStart = Math.abs(yTop - top) <= 90;
+    const nearSectionEnd = yBottom >= bottom - 120;
+    const extraLongSection = sec.offsetHeight > window.innerHeight * 1.25;
+
+    // If section is tall and user is not near start/end, assume they are reading.
+    if (extraLongSection && !nearSectionEnd && !nearSectionStart) return false;
+    return nearSectionStart || nearSectionEnd;
+  };
+
+  const shouldIgnoreContext = () => {
+    if (document.visibilityState !== "visible") return true;
     const a = document.activeElement;
-    if (a && (a.tagName === "INPUT" || a.tagName === "TEXTAREA" || a.getAttribute("contenteditable") === "true")) return true;
+    if (
+      a &&
+      (a.tagName === "INPUT" ||
+        a.tagName === "TEXTAREA" ||
+        a.tagName === "SELECT" ||
+        a.getAttribute("contenteditable") === "true")
+    ) {
+      return true;
+    }
+    if ($("[data-mobile-drawer]")?.getAttribute("data-open") === "true") return true;
+    if ($("[data-lightbox]")?.open) return true;
     return false;
   };
 
-  window.addEventListener(
-    "wheel",
-    (e) => {
-      if (shouldIgnore(e)) return;
-      const now = performance.now();
-      if (now - lastAt < 450) return;
-      if (now < lockedUntil) return;
+  const queueIdleCheck = () => {
+    window.clearTimeout(idleTimer);
+    idleTimer = window.setTimeout(() => {
+      if (!interactedSinceAuto) return;
+      if (shouldIgnoreContext()) return;
 
-      const dy = e.deltaY;
-      const deltaAbs = Math.abs(dy);
-      const dt = prevWheelAt ? now - prevWheelAt : 999;
-      prevWheelAt = now;
-      const speed = deltaAbs / Math.max(dt, 1);
+      const idx = getCurrentIndex();
+      if (!canAutoAdvance(idx)) return;
 
-      // Only snap on strong/fast wheel gestures.
-      if (deltaAbs < 110 && speed < 0.9) return;
+      interactedSinceAuto = false;
+      const next = sections[idx + 1];
+      next?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, idleMs);
+  };
 
-      const idx = getIndex();
-      const next = dy > 0 ? idx + 1 : idx - 1;
-      if (next < 0 || next >= sections.length) return;
+  const markInteracted = () => {
+    interactedSinceAuto = true;
+    queueIdleCheck();
+  };
 
-      // If the current section is tall and user is still within it, don't hijack.
-      const cur = sections[idx];
-      const curTop = cur.offsetTop;
-      const curBottom = curTop + cur.offsetHeight;
-      const viewportTop = window.scrollY + headerOffset;
-      const viewportBottom = window.scrollY + window.innerHeight;
-      const withinTallSection = cur.offsetHeight > window.innerHeight * 1.25 && viewportBottom < curBottom - 140 && viewportTop > curTop + 80;
-      if (withinTallSection) return;
-
-      e.preventDefault();
-      lastAt = now;
-      lockedUntil = now + 900;
-      sections[next].scrollIntoView({ behavior: "smooth", block: "start" });
-    },
-    { passive: false }
-  );
+  for (const evt of ["wheel", "touchstart", "touchmove", "mousedown", "keydown"]) {
+    window.addEventListener(evt, markInteracted, { passive: true });
+  }
+  window.addEventListener("scroll", queueIdleCheck, { passive: true });
 }
 
 function setYear() {
