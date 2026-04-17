@@ -617,8 +617,10 @@ function wireSectionAutoScroll() {
   const coarse = window.matchMedia?.("(pointer: coarse)")?.matches;
   const hover = window.matchMedia?.("(hover: hover)")?.matches;
   const hasTouch = navigator.maxTouchPoints > 0;
-  const desktopLayout = window.innerWidth >= 1024;
-  if (reduced || coarse || !hover || hasTouch || !desktopLayout) return;
+  const desktopLayout = window.innerWidth >= 1280;
+  const ua = navigator.userAgent || "";
+  const mobileUA = /Android|iPhone|iPad|iPod|Windows Phone|Mobile/i.test(ua);
+  if (reduced || coarse || !hover || hasTouch || mobileUA || !desktopLayout) return;
 
   const sections = $$("main > section");
   if (!sections.length) return;
@@ -660,8 +662,8 @@ function wireSectionAutoScroll() {
       prevWheelAt = now;
       const speed = deltaAbs / Math.max(dt, 1);
 
-      // Only snap on intentional/fast wheel gestures.
-      if (deltaAbs < 70 && speed < 0.6) return;
+      // Only snap on strong/fast wheel gestures.
+      if (deltaAbs < 110 && speed < 0.9) return;
 
       const idx = getIndex();
       const next = dy > 0 ? idx + 1 : idx - 1;
