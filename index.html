@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070707" />
+    <meta
+      name="description"
+      content="KOYA Restaurant — premium taste, viral energy. View the menu, see what’s trending, and order instantly on WhatsApp."
+    />
+
+    <title>KOYA Restaurant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" href="./Logo/logo.jfif" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <div class="header-inner">
+        <a class="brand" href="#top" aria-label="KOYA Restaurant home">
+          <img class="brand-mark" src="./Logo/logo.jfif" alt="KOYA Restaurant logo" />
+          <div class="brand-text">
+            <div class="brand-name">KOYA</div>
+            <div class="brand-sub">Restaurant</div>
+          </div>
+        </a>
+
+        <nav class="nav" aria-label="Primary">
+          <a class="nav-link" href="#menu">Menu</a>
+          <a class="nav-link" href="#gallery">Gallery</a>
+          <a class="nav-link" href="#reserve">Reserve</a>
+          <a class="nav-link" href="#location">Location</a>
+          <a class="nav-link" href="#tiktok">TikTok</a>
+        </nav>
+
+        <div class="header-cta">
+          <button class="btn btn-ghost" type="button" data-open-menu>View Menu</button>
+          <button class="btn btn-gold" type="button" data-order-now>Order Now</button>
+        </div>
+
+        <button class="icon-btn" type="button" aria-label="Open menu" data-mobile-nav>
+          <span class="icon-bars" aria-hidden="true"><span></span></span>
+        </button>
+      </div>
+
+      <div class="mobile-drawer" data-mobile-drawer aria-hidden="true">
+        <div class="mobile-drawer-inner">
+          <a class="drawer-link" href="#menu" data-drawer-close>Menu</a>
+          <a class="drawer-link" href="#gallery" data-drawer-close>Gallery</a>
+          <a class="drawer-link" href="#reserve" data-drawer-close>Reserve</a>
+          <a class="drawer-link" href="#location" data-drawer-close>Location</a>
+          <a class="drawer-link" href="#tiktok" data-drawer-close>TikTok</a>
+          <div class="drawer-actions">
+            <button class="btn btn-ghost" type="button" data-open-menu>View Menu</button>
+            <button class="btn btn-gold" type="button" data-order-now>Order Now</button>
+          </div>
+          <div class="drawer-meta">
+            <div class="pill" data-open-status>Checking status…</div>
+            <div class="muted" data-address>Set your address in <span class="mono">app.js</span></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-label="KOYA hero">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-grain" aria-hidden="true"></div>
+
+        <div class="container hero-inner">
+          <div class="hero-copy reveal">
+            <div class="pill pill-glow" data-open-status>Checking status…</div>
+            <h1 class="hero-title">
+              Premium taste.
+              <span class="gold">Viral energy.</span>
+            </h1>
+            <p class="hero-subtitle">
+              A bold, modern restaurant experience — engineered for cravings. Explore what’s trending, then order in one tap.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn btn-gold btn-lg" type="button" data-order-now>Order on WhatsApp</button>
+              <a class="btn btn-ghost btn-lg" href="#menu">View Menu</a>
+            </div>
+
+            <div class="hero-metrics">
+              <div class="metric">
+                <div class="metric-top">
+                  <span class="dot dot-gold" aria-hidden="true"></span>
+                  <span class="metric-label">Trending now</span>
+                </div>
+                <div class="metric-value" data-trending-line>Featured dishes + viral clips</div>
+              </div>
+              <div class="metric">
+                <div class="metric-top">
+                  <span class="dot dot-white" aria-hidden="true"></span>
+                  <span class="metric-label">Fast ordering</span>
+                </div>
+                <div class="metric-value">Pick a dish → tap WhatsApp → send</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card reveal" data-hero-card>
+            <div class="hero-card-media">
+              <img
+                src="./Food%20Images/Landing_image_Desktop.jpg"
+                alt="Signature KOYA dish"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+            <div class="hero-card-body">
+              <div class="hero-card-title">Today’s obsession</div>
+              <div class="hero-card-desc">Golden, hot, and built for the camera — the kind of bite that makes people post.</div>
+              <div class="hero-card-actions">
+                <button class="btn btn-gold" type="button" data-order-now>Order Now</button>
+                <a class="btn btn-ghost" href="#tiktok">See TikTok</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-bottom">
+          <div class="container hero-bottom-inner">
+            <div class="trust reveal">
+              <div class="trust-kicker">Trusted energy</div>
+              <div class="trust-line">
+                <span class="gold">“Trending on TikTok”</span>
+                <span class="sep">•</span>
+                <span>Fresh, made-to-order</span>
+                <span class="sep">•</span>
+                <span>Premium vibe, every time</span>
+              </div>
+            </div>
+            <a class="scroll-cue" href="#menu" aria-label="Scroll to menu">
+              <span class="scroll-cue-text">Scroll</span>
+              <span class="scroll-cue-line" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="trending" aria-label="Trending on TikTok">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">Social proof</div>
+            <h2 class="section-title">Trending on TikTok</h2>
+            <p class="section-subtitle">
+              KOYA looks expensive — and tastes even better. This is built to be shared.
+            </p>
+          </div>
+
+          <div class="grid-3 reveal">
+            <div class="panel">
+              <div class="panel-top">
+                <div class="badge">Viral</div>
+                <div class="panel-title">Camera-ready food</div>
+              </div>
+              <p class="panel-text">The textures, the shine, the crunch — every dish is made to make people stop scrolling.</p>
+            </div>
+            <div class="panel">
+              <div class="panel-top">
+                <div class="badge">Premium</div>
+                <div class="panel-title">Black + neon gold brand</div>
+              </div>
+              <p class="panel-text">A bold identity that feels already famous, already busy, already the place to be.</p>
+            </div>
+            <div class="panel">
+              <div class="panel-top">
+                <div class="badge">Fast</div>
+                <div class="panel-title">One-tap ordering</div>
+              </div>
+              <p class="panel-text">No forms, no friction. Choose your food, tap WhatsApp, and send your order.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="featured" aria-label="Featured dishes">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">Best sellers</div>
+            <h2 class="section-title">Featured dishes</h2>
+            <p class="section-subtitle">A short list of crowd favorites. Built for cravings.</p>
+          </div>
+
+          <div class="featured-grid reveal" data-featured-grid>
+            <!-- populated by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="menu" aria-label="Menu">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">Menu</div>
+            <h2 class="section-title">Pick your mood</h2>
+            <p class="section-subtitle">Tap a dish to order instantly on WhatsApp.</p>
+          </div>
+
+          <div class="menu-toolbar reveal">
+            <div class="chips" data-category-chips aria-label="Menu categories">
+              <!-- populated by app.js -->
+            </div>
+            <div class="menu-search">
+              <input class="input" type="search" placeholder="Search the menu…" aria-label="Search menu" data-menu-search />
+            </div>
+          </div>
+
+          <div class="menu-grid reveal" data-menu-grid>
+            <!-- populated by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="gallery" aria-label="Gallery">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">Gallery</div>
+            <h2 class="section-title">Food that looks expensive</h2>
+            <p class="section-subtitle">High-contrast, high-crave visuals — made for sharing.</p>
+          </div>
+
+          <div class="masonry reveal" data-gallery>
+            <!-- populated by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-soft" id="tiktok" aria-label="TikTok">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">Viral</div>
+            <h2 class="section-title">TikTok highlights</h2>
+            <p class="section-subtitle">
+              Drop your TikTok links in <span class="mono">app.js</span> — this section turns views into walk-ins.
+            </p>
+          </div>
+
+          <div class="tiktok-grid reveal" data-tiktok-grid>
+            <!-- populated by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="reserve" aria-label="Table reservation">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">Reserve</div>
+            <h2 class="section-title">Book a table</h2>
+            <p class="section-subtitle">
+              Quick reservation request — sent instantly on WhatsApp (or email). No calls, no friction.
+            </p>
+          </div>
+
+          <div class="reserve-grid reveal">
+            <div class="reserve-card">
+              <form class="reserve-form" data-reserve-form>
+                <div class="field">
+                  <label class="label" for="r-name">Name</label>
+                  <input class="input" id="r-name" name="name" autocomplete="name" placeholder="Your name" required />
+                </div>
+
+                <div class="field">
+                  <label class="label" for="r-phone">Phone</label>
+                  <input
+                    class="input"
+                    id="r-phone"
+                    name="phone"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    placeholder="+220 ..."
+                    required
+                  />
+                </div>
+
+                <div class="field">
+                  <label class="label" for="r-date">Date</label>
+                  <input class="input" id="r-date" name="date" type="date" required />
+                </div>
+
+                <div class="field">
+                  <label class="label" for="r-time">Time</label>
+                  <input class="input" id="r-time" name="time" type="time" required />
+                </div>
+
+                <div class="field">
+                  <label class="label" for="r-guests">Guests</label>
+                  <input
+                    class="input"
+                    id="r-guests"
+                    name="guests"
+                    type="number"
+                    min="1"
+                    max="30"
+                    step="1"
+                    value="2"
+                    required
+                  />
+                </div>
+
+                <div class="field">
+                  <label class="label" for="r-notes">Notes (optional)</label>
+                  <input class="input" id="r-notes" name="notes" placeholder="Birthday, allergies, outdoor seating…" />
+                </div>
+
+                <div class="reserve-actions">
+                  <button class="btn btn-gold btn-lg" type="submit">Send on WhatsApp</button>
+                  <button class="btn btn-ghost btn-lg" type="button" data-reserve-email>Send via Email</button>
+                </div>
+
+                <div class="reserve-foot muted">
+                  We’ll confirm your reservation as soon as possible.
+                </div>
+              </form>
+            </div>
+
+            <div class="reserve-aside">
+              <div class="panel">
+                <div class="panel-top">
+                  <div class="badge">Tip</div>
+                  <div class="panel-title">Want it faster?</div>
+                </div>
+                <p class="panel-text">
+                  For same-day bookings, WhatsApp gets the quickest response. Tap “Send on WhatsApp” and you’re done.
+                </p>
+              </div>
+
+              <div class="panel">
+                <div class="panel-top">
+                  <div class="badge">Premium</div>
+                  <div class="panel-title">Perfect for groups</div>
+                </div>
+                <p class="panel-text">
+                  Add notes for birthdays, special seating, or dietary preferences — we’ll take care of the details.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="location" aria-label="Location and contact">
+        <div class="container">
+          <div class="section-head reveal">
+            <div class="eyebrow">Visit</div>
+            <h2 class="section-title">Location & hours</h2>
+            <p class="section-subtitle">Come hungry. Leave legendary.</p>
+          </div>
+
+          <div class="location-grid reveal">
+            <div class="location-card">
+              <div class="location-top">
+                <div>
+                  <div class="location-title">KOYA Restaurant</div>
+                  <div class="location-address" data-address>Set your address in app.js</div>
+                </div>
+                <div class="pill pill-glow" data-open-status>Checking status…</div>
+              </div>
+
+              <div class="hours" data-hours>
+                <!-- populated by app.js -->
+              </div>
+
+              <div class="location-actions">
+                <a class="btn btn-ghost" href="#menu">View Menu</a>
+                <button class="btn btn-gold" type="button" data-order-now>Order on WhatsApp</button>
+                <a class="btn btn-ghost" data-call href="#">Call</a>
+                <a class="btn btn-ghost" data-directions href="#" target="_blank" rel="noreferrer">Directions</a>
+              </div>
+            </div>
+
+            <div class="map-card" aria-label="Google Maps">
+              <iframe
+                title="KOYA Restaurant on Google Maps"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                data-map
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="footer-brand">
+          <img class="footer-mark" src="./Logo/logo.jfif" alt="" />
+          <div>
+            <div class="footer-title">KOYA Restaurant</div>
+            <div class="footer-sub">Black. Gold. Unforgettable.</div>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#menu">Menu</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#reserve">Reserve</a>
+          <a href="#location">Location</a>
+          <a href="#tiktok">TikTok</a>
+        </div>
+
+        <div class="footer-meta">
+          <div class="muted">© <span data-year></span> KOYA Restaurant</div>
+          <div class="muted">Built to convert TikTok views into customers.</div>
+        </div>
+      </div>
+    </footer>
+
+    <button class="fab" type="button" aria-label="Order on WhatsApp" data-order-now>
+      <span class="fab-dot" aria-hidden="true"></span>
+      Order Now
+    </button>
+
+    <dialog class="lightbox" data-lightbox>
+      <button class="icon-btn lightbox-close" type="button" aria-label="Close" data-lightbox-close>
+        <span class="icon-x" aria-hidden="true"></span>
+      </button>
+      <img data-lightbox-img alt="" />
+    </dialog>
+
+    <div class="toast" role="status" aria-live="polite" aria-atomic="true" data-toast></div>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

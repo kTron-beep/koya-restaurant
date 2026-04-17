@@ -1,0 +1,65 @@
+{
+  "currencySymbol": "D",
+  "featuredIds": ["classic-chicken", "koya-burger", "loaded-fries"],
+  "categories": [
+    {
+      "id": "signature",
+      "name": "Signature",
+      "items": [
+        {
+          "id": "classic-chicken",
+          "name": "Golden Crispy Chicken",
+          "image": "./Food%20Images/fried-chicken-breast-cheese-tomato-french-fries-ketchup-green-salad-side-view-jpg_141793-1782.avif",
+          "description": "Ultra-crispy, juicy chicken with a bold KOYA seasoning — the kind of crunch that makes people pause mid-conversation.",
+          "price": 180
+        },
+        {
+          "id": "loaded-fries",
+          "name": "Loaded KOYA Fries",
+          "image": "./Food%20Images/The-Most-Popular-Menu-Items-That-You-should-Consider-Adding-to-Your-Restaurant_Content-image1-min-1024x569.png",
+          "description": "Hot, golden fries stacked with creamy sauce and spicy kick — rich, messy, and dangerously addictive.",
+          "price": 120
+        }
+      ]
+    },
+    {
+      "id": "burgers",
+      "name": "Burgers",
+      "items": [
+        {
+          "id": "koya-burger",
+          "name": "KOYA Premium Burger",
+          "image": "./Food%20Images/Landing_image_Desktop.jpg",
+          "description": "A thick, juicy premium bite with a glossy finish — balanced, bold, and made to look expensive on camera.",
+          "price": 200
+        }
+      ]
+    },
+    {
+      "id": "sides",
+      "name": "Sides",
+      "items": [
+        {
+          "id": "crispy-fries",
+          "name": "Crispy Fries",
+          "image": "./Food%20Images/The-Most-Popular-Menu-Items-That-You-should-Consider-Adding-to-Your-Restaurant_Content-image1-min-1024x569.png",
+          "description": "Golden, salty, perfectly crisp — clean crunch, soft center, and the side that disappears first every time.",
+          "price": 60
+        }
+      ]
+    },
+    {
+      "id": "drinks",
+      "name": "Drinks",
+      "items": [
+        {
+          "id": "soft-drink",
+          "name": "Cold Soft Drink",
+          "image": "./Restaurant%20Photos/restaurantImage.jpg",
+          "description": "Ice-cold, fizzy refreshment — the perfect reset between bites.",
+          "price": 35
+        }
+      ]
+    }
+  ]
+}
