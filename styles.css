@@ -598,6 +598,23 @@ main{max-width:100%; overflow-x: hidden; overflow-x: clip}
 .reserve-actions{display:grid; grid-template-columns: 1fr; gap:10px; margin-top:6px}
 .reserve-foot{font-size:13px; line-height:1.5}
 
+/* House guidelines */
+.guidelines-grid{display:grid; gap:12px}
+.guideline-card{
+  height:100%;
+  background: rgba(255,255,255,.035);
+}
+.guidelines-footnote{
+  margin-top:14px;
+  border:1px solid rgba(245,200,75,.30);
+  background: rgba(245,200,75,.10);
+  border-radius: var(--radius);
+  color: rgba(255,255,255,.92);
+  padding: 12px 14px;
+  font-weight: 600;
+  line-height:1.5;
+}
+
 .footer{
   border-top: 1px solid rgba(255,255,255,.08);
   background: rgba(0,0,0,.25);
@@ -697,6 +714,7 @@ main{max-width:100%; overflow-x: hidden; overflow-x: clip}
   .tiktok-grid{grid-template-columns: repeat(3, 1fr)}
   .location-grid{grid-template-columns: 1fr 1.1fr; align-items:stretch}
   .reserve-grid{grid-template-columns: 1.05fr .95fr; align-items:start}
+  .guidelines-grid{grid-template-columns: repeat(3, 1fr)}
   .reserve-actions{grid-template-columns: 1fr 1fr}
   .map-card iframe{height: 100%}
   .footer-inner{grid-template-columns: 1.2fr 1fr 1fr; align-items:start}

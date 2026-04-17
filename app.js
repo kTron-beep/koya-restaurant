@@ -5,8 +5,8 @@ const CONFIG = {
   currencySymbol: "D",
 
   // Update these 4 fields first.
-  whatsappNumberE164DigitsOnly: "2207335586", // e.g. "2207123456" (digits only, country code first). Leave blank to use WhatsApp share fallback.
-  phoneNumberDisplay: "+220 733 5586", // e.g. "+220 712 3456" (for the Call button). Leave blank to hide Call.
+  whatsappNumberE164DigitsOnly: "2202222208", // e.g. "2207123456" (digits only, country code first). Leave blank to use WhatsApp share fallback.
+  phoneNumberDisplay: "+220 222 2208", // e.g. "+220 712 3456" (for the Call button). Leave blank to hide Call.
   addressLine: "Senegambia Highway, Former Big Apple",
   mapsQuery: "KOYA Restaurant", // used for Google Maps embed + Directions link
 
@@ -15,13 +15,13 @@ const CONFIG = {
 
   // Opening hours (local device time). Use 24h format "HH:MM". Set closed:true to mark closed all day.
   hours: {
-    mon: { open: "17:00", close: "00:00" },
-    tue: { open: "17:00", close: "00:00" },
-    wed: { open: "17:00", close: "00:00" },
-    thu: { open: "17:00", close: "00:00" },
-    fri: { open: "17:00", close: "00:00" }, // supports past midnight
-    sat: { open: "17:00", close: "00:00" },
-    sun: { open: "17:00", close: "00:00" }
+    mon: { open: "09:00", close: "18:00" },
+    tue: { open: "09:00", close: "18:00" },
+    wed: { open: "09:00", close: "18:00" },
+    thu: { open: "09:00", close: "18:00" },
+    fri: { open: "09:00", close: "18:00" }, // supports past midnight
+    sat: { open: "09:00", close: "18:00" },
+    sun: { open: "09:00", close: "18:00" }
   },
 
   // TikTok links (fast + lightweight). Replace with your real links.
